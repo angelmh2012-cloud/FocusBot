@@ -1,0 +1,21 @@
+.pupila{
+    position: absolute;
+    will-change: transform;
+    background-color: black;
+    width: 25px;
+    height: 25px;
+}
+
+.eye {
+    background-color: aquamarine;
+    border-radius: 100px;
+    width: 50px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+}
