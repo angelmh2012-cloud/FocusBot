@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Enlace ESP32</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <button type="button" class="config-trigger" popovertarget="drawer" popovertargetaction="show" aria-expanded="false" aria-label="Configurar conexión con el ESP32">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 2v6M15 2v6M6 8h12l-1 5a5 5 0 0 1-10 0L6 8Z"/>
+      <path d="M12 17v5"/>
+    </svg>
+    <span>Conexión</span>
+  </button>
+
+  <div id="drawer" popover>
+    <div class="drawer-head">
+      <h2>Conexión ESP32</h2>
+      <button type="button" class="drawer-close" popovertarget="drawer" popovertargetaction="hide" aria-label="Cerrar">×</button>
+    </div>
+
+    <label class="field">Dirección IP
+      <input type="text" id="cfgIp" placeholder="192.168.1.50" autocomplete="off">
+    </label>
+    <label class="field">Puerto
+      <input type="number" id="cfgPort" placeholder="80" autocomplete="off">
+    </label>
+    <label class="field">Ruta del endpoint
+      <input type="text" id="cfgPath" placeholder="/lista" autocomplete="off">
+    </label>
+
+    <div class="drawer-actions">
+      <button type="button" class="btn btn--ghost" id="testBtn">Probar conexión</button>
+      <button type="button" class="btn btn--primary" id="saveBtn">Guardar</button>
+    </div>
+    <p class="hint" id="testResult"></p>
+    <p class="hint">La prueba solo confirma que el dispositivo responde en la red; el envío real depende de que el endpoint exista.</p>
+    <div class="eye">
+  <div class="container" id="pupila">
+    <div class="pupila"></div>
+    <div class="pupila2"></div>
+  </div>
+</div>
+  </main> 
+  </div>
+
+  <main class="console">
+    <div class="console__head">
+      <div class="brand">
+        <svg class="brand__chip" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <rect x="6" y="6" width="12" height="12" rx="2"/>
+          <line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/>
+          <line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/>
+          <line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/>
+          <line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/>
+        </svg>
+        <div>
+          <p class="brand__title">Enlace ESP32</p>
+          <p class="brand__target" id="targetLabel">192.168.1.50:80/lista</p>
+        </div>
+      </div>
+      <div class="status-line">
+        <span class="dot is-idle" id="statusDot"></span>
+        <span class="status-pill is-idle" id="statusPill">Sin verificar</span>
+      </div>
+    </div>
+
+    <nav class="tabs" id="tabs">
+      <button type="button" class="tab is-active" data-view="enviar">Enviar</button>
+      <button type="button" class="tab" data-view="historial">Historial</button>
+      <button type="button" class="tab" data-view="guia">Guía</button>
+      <span class="tab-indicator" id="tabIndicator"></span>
+    </nav>
+
+    <section id="panelBody"></section>
+
+
+<script src="main.js">
+  
+</script>
+</body>
+</html>
